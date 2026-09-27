@@ -57,18 +57,18 @@ Each campaign contains three major quests and an ending.
 - Next.js
 - React
 - TypeScript
-- Gemini API via `@google/genai`
+- Groq API via `openai` SDK (OpenAI-compatible endpoint)
 - File-based persistent game memory
 - Next.js API routes
 
 ## AI architecture
 
-The browser never talks directly to Gemini. The client sends gameplay decisions to `/api/chat`.
+The browser never talks directly to Groq. The client sends gameplay decisions to `/api/chat`.
 
 The server:
 
 1. Loads persistent player memory.
-2. Sends memory + the latest decision to Gemini.
+2. Sends memory + the latest decision to Groq.
 3. Receives structured JSON for dialogue, choices and optional quest generation.
 4. Preserves any existing active quest.
 5. Saves the resulting memory to disk.
@@ -84,7 +84,7 @@ npm install
 Create `.env.local`:
 
 ```env
-GEMINI_API_KEY=your_key_here
+GROQ_API_KEY=your_key_here
 ```
 
 Run:
@@ -109,7 +109,7 @@ curl -X POST http://localhost:3000/api/reset
 
 ## Security
 
-Never commit `.env.local` or expose the Gemini API key in the browser.
+Never commit `.env.local` or expose the Groq API key in the browser.
 
 ## Hackathon pitch
 
