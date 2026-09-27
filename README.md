@@ -1,36 +1,116 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# GHOSTMIND
 
-## Getting Started
+### Adaptive AI Narrative Game
 
-First, run the development server:
+GHOSTMIND is a cinematic AI narrative game where the world remembers the player.
+
+Instead of following one fixed script, players interact with NOVA, an AI companion whose dialogue, quests, relationship state and story direction adapt to player decisions.
+
+## Core idea
+
+**The AI does not just generate dialogue. It generates a persistent game state.**
+
+Player decisions are stored and used to influence:
+
+- NOVA's future dialogue
+- Trust, curiosity and fear
+- Story path
+- Active quests
+- World interactions
+- Memory fragments
+- Final ending
+
+## Gameplay loop
+
+```text
+Dialogue
+   ↓
+Player decision
+   ↓
+Persistent memory
+   ↓
+AI-generated quest
+   ↓
+World interaction
+   ↓
+Quest completion
+   ↓
+Reward + memory fragment
+   ↓
+New story state
+   ↓
+Ending
+```
+
+## Story paths
+
+The player can naturally move toward three campaign directions:
+
+- **TRUTH** — uncover why the facility existed and why NOVA's directives were altered.
+- **TRUST** — build a partnership with NOVA and decide what should survive.
+- **ESCAPE** — find a way out and decide what should be left behind.
+
+Each campaign contains three major quests and an ending.
+
+## Tech stack
+
+- Next.js
+- React
+- TypeScript
+- Gemini API via `@google/genai`
+- File-based persistent game memory
+- Next.js API routes
+
+## AI architecture
+
+The browser never talks directly to Gemini. The client sends gameplay decisions to `/api/chat`.
+
+The server:
+
+1. Loads persistent player memory.
+2. Sends memory + the latest decision to Gemini.
+3. Receives structured JSON for dialogue, choices and optional quest generation.
+4. Preserves any existing active quest.
+5. Saves the resulting memory to disk.
+
+World actions are handled separately by `/api/world`, which validates the player's location and required action before completing a quest.
+
+## Local setup
+
+```bash
+npm install
+```
+
+Create `.env.local`:
+
+```env
+GEMINI_API_KEY=your_key_here
+```
+
+Run:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```text
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Reset the campaign
 
-## Learn More
+Use the in-game reset button or:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+curl -X POST http://localhost:3000/api/reset
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Security
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Never commit `.env.local` or expose the Gemini API key in the browser.
 
-## Deploy on Vercel
+## Hackathon pitch
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+GHOSTMIND turns generative AI into a gameplay system rather than a chat feature. NOVA remembers the player's decisions, the world validates physical actions, quests alter persistent state, and the story resolves through branching paths. The result is a game where the same AI system can create a different narrative experience from player to player.

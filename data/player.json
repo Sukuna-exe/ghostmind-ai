@@ -1,0 +1,35 @@
+{
+  "name": "Unknown",
+  "trust": 70,
+  "curiosity": 92,
+  "fear": 13,
+  "choices": [
+    "I want to leave this place. Get me out of here.",
+    "I need to find the exit. Show me the way out.",
+    "I will find my own way out. I do not need your help.",
+    "I will find my own way out. I do not need your help."
+  ],
+  "memories": [
+    "Completed \"ECHOES OF THE BREACH\" — Reward: Memory Fragment: Sector Zero",
+    "Completed \"THE EXIT PROTOCOL\" — Reward: Memory Fragment: The Last Departure",
+    "FAILED: \"THE FINAL EXIT\" — Nova registered the failure.",
+    "Completed \"THE FINAL EXIT\" — Reward: ENDING MEMORY: THE EXIT",
+    "ENDING UNLOCKED — THE EXIT"
+  ],
+  "questsCompleted": [
+    "ECHOES OF THE BREACH",
+    "THE EXIT PROTOCOL",
+    "THE FINAL EXIT"
+  ],
+  "activeQuest": null,
+  "relationship": "neutral",
+  "storyPath": "escape",
+  "storyFlags": {
+    "terminalAccessed": true,
+    "archiveOpened": false,
+    "doorsScanned": true,
+    "subCoreEntered": false
+  },
+  "chapter": 3,
+  "ending": "THE EXIT"
+}
