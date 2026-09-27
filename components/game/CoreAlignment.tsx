@@ -346,7 +346,7 @@ export function CoreAlignment({ isOpen, onClose, onSuccess, onFailure, locationN
 
     window.addEventListener("keydown", handleKey);
     return () => window.removeEventListener("keydown", handleKey);
-  }, [isOpen, phase, onClose]);
+  }, [isOpen, phase, onClose, handleRotate]);
 
   if (!isOpen) return null;
 
@@ -399,7 +399,12 @@ export function CoreAlignment({ isOpen, onClose, onSuccess, onFailure, locationN
           </div>
           <div className="ring-status">
             {ringsRef.current.map((ring, i) => (
-              <span key={i} className={`ring-indicator ${ring.aligned ? "aligned" : i === activeRing ? "active" : ""}`}>
+              <span
+  key={i}
+  className={`ring-indicator ${ring.aligned ? "aligned" : i === activeRing ? "active" : ""}`}
+  onClick={() => !ring.aligned && setActiveRing(i)}
+  style={{ cursor: ring.aligned ? "default" : "pointer", pointerEvents: ring.aligned ? "none" : "auto" }}
+>
                 {i + 1}
               </span>
             ))}

@@ -314,6 +314,29 @@ export function MemoryFragment({ isOpen, onClose, onSuccess, onFailure, difficul
     }
   };
 
+  const handleCanvasClick = (e: React.MouseEvent<HTMLCanvasElement>) => {
+    if (phase !== "input") return;
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const rect = canvas.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const centerX = rect.width / 2;
+    const optionY = rect.height * 0.55;
+    const optionSpacing = 70;
+    const optionStartX = centerX - ((SYMBOLS.length - 1) * optionSpacing) / 2;
+
+    SYMBOLS.forEach((symbol, i) => {
+      const sx = optionStartX + i * optionSpacing;
+      const dist = Math.sqrt((x - sx) ** 2 + (y - optionY) ** 2);
+      if (dist <= 40) {
+        handleSymbolSelect(symbol);
+      }
+    });
+  };
+
   const checkResult = () => {
     const correct = playerInput.every((s, i) => s === sequence[i]);
 
@@ -402,7 +425,7 @@ export function MemoryFragment({ isOpen, onClose, onSuccess, onFailure, difficul
           <button className="minigame-close" onClick={(e) => { e.stopPropagation(); onClose(); }}>×</button>
         </div>
         <div className="minigame-canvas-wrapper">
-          <canvas ref={canvasRef} className="minigame-canvas" />
+          <canvas ref={canvasRef} className="minigame-canvas" onClick={handleCanvasClick} />
         </div>
         <div className="minigame-footer">
           <div className="round-progress">

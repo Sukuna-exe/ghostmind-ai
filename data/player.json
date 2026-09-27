@@ -3,12 +3,24 @@
   "trust": 50,
   "curiosity": 50,
   "fear": 0,
-  "choices": [],
-  "memories": [],
+  "choices": [
+    "Can you remember me?"
+  ],
+  "memories": [
+    "Player chose: Can you remember me? — Nova said: I can remember moments, but names slip through the mist. Perhaps I can help you find the echoes you seek. In any case, I'm here to listen. What do you need to discover?"
+  ],
   "questsCompleted": [],
-  "activeQuest": null,
+  "activeQuest": {
+    "id": "echoes-in-the-archive",
+    "title": "Echoes in the Archive",
+    "objective": "Retrieve the hidden memory log of the central AI",
+    "reward": "Insight into the system's past",
+    "location": "ARCHIVE",
+    "action": "scan",
+    "progress": 0
+  },
   "relationship": "neutral",
-  "storyPath": "undecided",
+  "storyPath": "trust",
   "storyFlags": {
     "terminalAccessed": false,
     "archiveOpened": false,
