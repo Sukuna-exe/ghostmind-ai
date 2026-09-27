@@ -106,7 +106,7 @@ export async function POST(request: Request) {
         const systemPrompt = buildSystemPrompt(memory);
 
         const completion = await client.chat.completions.create({
-          model: "llama-3.3-70b-versatile",
+          model: "openai/gpt-oss-20b",
           messages: [
             { role: "system", content: systemPrompt },
             { role: "user", content: "Player choice: " + choice },
@@ -114,14 +114,17 @@ export async function POST(request: Request) {
           response_format: { type: "json_object" },
         });
 
+        console.log("RAW GROQ OUTPUT:", completion.choices[0].message.content);
         const raw = completion.choices[0].message.content;
+        console.log("RAW GROQ OUTPUT:", raw);
         aiResult = JSON.parse(raw || "{}");
 
         if (!aiResult.dialogue || !aiResult.quest) {
           throw new Error("Incomplete AI response");
         }
       } catch (err) {
-        console.error("Groq call failed, using fallback:", err);
+        console.error("GROQ DEBUG:", err);
+        console.error("GROQ DEBUG:", err);
         aiResult = fallbackResponse(choice);
       }
     }

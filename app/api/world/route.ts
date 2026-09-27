@@ -87,7 +87,7 @@ export async function POST(request: Request) {
       });
     }
 
-const completedQuest = activeQuest;
+    const completedQuest = activeQuest;
     const completedQuests = [...memory.questsCompleted];
 
     const flags = { ...memory.storyFlags };
@@ -212,3 +212,4 @@ const completedQuest = activeQuest;
     );
   }
 }
+

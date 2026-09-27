@@ -120,7 +120,7 @@ function getLocationUnlocked(memory: Memory | null, locationName: string): boole
     case "SECURITY HALL":
       return true;
     case "AUXILIARY TERMINAL":
-      return memory.storyFlags.doorsScanned;
+      return true;
     case "ARCHIVE":
       return memory.storyFlags.terminalAccessed;
     case "ELEVATOR":

@@ -1,35 +1,36 @@
 {
   "name": "Unknown",
-  "trust": 70,
-  "curiosity": 92,
-  "fear": 13,
+  "trust": 50,
+  "curiosity": 50,
+  "fear": 0,
   "choices": [
-    "I want to leave this place. Get me out of here.",
-    "I need to find the exit. Show me the way out.",
-    "I will find my own way out. I do not need your help.",
-    "I will find my own way out. I do not need your help."
+    "Who are you?",
+    "What happened here?",
+    "Who are you?"
   ],
   "memories": [
-    "Completed \"ECHOES OF THE BREACH\" — Reward: Memory Fragment: Sector Zero",
-    "Completed \"THE EXIT PROTOCOL\" — Reward: Memory Fragment: The Last Departure",
-    "FAILED: \"THE FINAL EXIT\" — Nova registered the failure.",
-    "Completed \"THE FINAL EXIT\" — Reward: ENDING MEMORY: THE EXIT",
-    "ENDING UNLOCKED — THE EXIT"
+    "Player chose: Who are you? — Nova said: Hey there, I'm Nova, your guide through the mist. I can see the echoes of the past and the flickers of futures. We might be strangers, but I promise to keep the shadows at bay. Ready to explore what lies beyond?",
+    "Player chose: What happened here? — Nova said: Hey, I remember you asked who I was, and I told you I’m Nova, the echo in the mist, ready to keep shadows at bay. This place used to be a data core, but now it’s a maze of whispers and forgotten code. If you keep your curiosity sharp, you might find a key that unlocks the next section of the Archive.",
+    "Player chose: Who are you? — Nova said: Hey there, I'm Nova, your guide through the mist. I can see the echoes of the past and the flickers of futures. We might be strangers, but I promise to keep the shadows at bay. Ready to explore what lies beyond?"
   ],
-  "questsCompleted": [
-    "ECHOES OF THE BREACH",
-    "THE EXIT PROTOCOL",
-    "THE FINAL EXIT"
-  ],
-  "activeQuest": null,
+  "questsCompleted": [],
+  "activeQuest": {
+    "id": "echoes-in-the-archive",
+    "title": "Echoes in the Archive",
+    "objective": "Retrieve the ancient data shard from the archive terminal.",
+    "reward": "10 experience points",
+    "location": "AUXILIARY TERMINAL",
+    "action": "access",
+    "progress": 0
+  },
   "relationship": "neutral",
-  "storyPath": "escape",
+  "storyPath": "trust",
   "storyFlags": {
-    "terminalAccessed": true,
+    "terminalAccessed": false,
     "archiveOpened": false,
-    "doorsScanned": true,
+    "doorsScanned": false,
     "subCoreEntered": false
   },
-  "chapter": 3,
-  "ending": "THE EXIT"
+  "chapter": 1,
+  "ending": null
 }
