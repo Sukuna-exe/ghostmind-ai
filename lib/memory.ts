@@ -48,6 +48,17 @@ export type PlayerMemory = {
   ending: string | null;
 };
 
+const VALID_LOCATIONS = [
+  "AUXILIARY TERMINAL",
+  "ARCHIVE",
+  "SUB-CORE",
+  "ENTRANCE",
+  "SECURITY HALL",
+  "ELEVATOR",
+];
+
+const VALID_ACTIONS = ["access", "open", "enter", "scan"];
+
 function inferLocation(objective: string) {
   const text = objective.toLowerCase();
 
@@ -75,9 +86,14 @@ function inferLocation(objective: string) {
 
   if (
     text.includes("door") ||
-    text.includes("blast")
+    text.includes("blast") ||
+    text.includes("security")
   ) {
-    return "BLAST DOORS";
+    return "SECURITY HALL";
+  }
+
+  if (text.includes("elevator")) {
+    return "ELEVATOR";
   }
 
   return "ARCHIVE";
@@ -94,11 +110,15 @@ function inferAction(location: string) {
     case "SUB-CORE":
       return "enter";
 
-    case "BLAST DOORS":
+    case "ELEVATOR":
+      return "enter";
+
+    case "ENTRANCE":
+    case "SECURITY HALL":
       return "scan";
 
     default:
-      return "inspect";
+      return "access";
   }
 }
 
@@ -109,15 +129,23 @@ export function normalizeQuest(
     return null;
   }
 
-  const location =
-    quest.location ??
-    inferLocation(
-      quest.objective ?? ""
-    );
+  const rawLocation = String(quest.location ?? "").toUpperCase();
 
-  const action =
-    quest.action ??
-    inferAction(location);
+  let location = VALID_LOCATIONS.find((loc) =>
+    rawLocation.includes(loc)
+  );
+
+  if (!location) {
+    location = inferLocation(quest.objective ?? "");
+  }
+
+  const rawAction = String(quest.action ?? "").toLowerCase();
+
+  let action = VALID_ACTIONS.find((a) => rawAction.includes(a));
+
+  if (!action) {
+    action = inferAction(location);
+  }
 
   return {
     id:
