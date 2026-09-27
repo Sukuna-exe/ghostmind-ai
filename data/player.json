@@ -1,45 +1,20 @@
 {
   "name": "Unknown",
-  "trust": 55,
-  "curiosity": 60,
+  "trust": 50,
+  "curiosity": 50,
   "fear": 0,
-  "choices": [
-    "Who are you?",
-    "What happened here?",
-    "Who are you?",
-    "What happened here?",
-    "I access at the auxiliary terminal.",
-    "Who are you?"
-  ],
-  "memories": [
-    "Player chose: Who are you? — Nova said: Hey there, I'm Nova, your guide through the mist. I can see the echoes of the past and the flickers of futures. We might be strangers, but I promise to keep the shadows at bay. Ready to explore what lies beyond?",
-    "Player chose: What happened here? — Nova said: Hey, I remember you asked who I was, and I told you I’m Nova, the echo in the mist, ready to keep shadows at bay. This place used to be a data core, but now it’s a maze of whispers and forgotten code. If you keep your curiosity sharp, you might find a key that unlocks the next section of the Archive.",
-    "Player chose: Who are you? — Nova said: Hey there, I'm Nova, your guide through the mist. I can see the echoes of the past and the flickers of futures. We might be strangers, but I promise to keep the shadows at bay. Ready to explore what lies beyond?",
-    "Player chose: What happened here? — Nova said: I remember when you asked who I am, and I said I’m Nova, your guide through the mist. Here, the mist has folded the past and future together—shadows whisper of a forgotten experiment that left echoes in this archive. Think of it as a puzzle waiting to be solved; we’ll uncover the truth together, one clue at a time.",
-    "Completed \"Archive Audit\" — Reward: Access to hidden memory logs",
-    "Player chose: I access at the auxiliary terminal. — Nova said: Hey there! Great move, accessing the terminal just unlocked the hidden memory logs from the Archive Audit. Curious? The logs hint at a concealed sub‑core that could hold more than data—maybe a secret key. Let's dive in together.",
-    "Player chose: Who are you? — Nova said: You asked who I am, and I said I'm Nova, your guide through the mist. I’m the echo of the archive, stitched to the mist that folds past and future into one curious puzzle. Let’s turn the pages of this hidden experiment together—I'll need your help to unlock its secrets."
-  ],
-  "questsCompleted": [
-    "Archive Audit"
-  ],
-  "activeQuest": {
-    "id": "decode-the-forgotten-log",
-    "title": "Decode the Forgotten Log",
-    "objective": "Access the encrypted log file in the ARCHIVE SUB-CORE",
-    "reward": "Arcane Data Shard",
-    "location": "AUXILIARY TERMINAL",
-    "action": "scan",
-    "progress": 0
-  },
+  "choices": [],
+  "memories": [],
+  "questsCompleted": [],
+  "activeQuest": null,
   "relationship": "neutral",
-  "storyPath": "trust",
+  "storyPath": "undecided",
   "storyFlags": {
-    "terminalAccessed": true,
+    "terminalAccessed": false,
     "archiveOpened": false,
     "doorsScanned": false,
     "subCoreEntered": false
   },
-  "chapter": 2,
+  "chapter": 1,
   "ending": null
 }

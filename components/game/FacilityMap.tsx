@@ -113,25 +113,8 @@ function getLocationFlags(memory: Memory | null, locationName: string): boolean 
 }
 
 function getLocationUnlocked(memory: Memory | null, locationName: string): boolean {
-  if (!memory) return locationName === "ENTRANCE";
-  switch (locationName) {
-    case "ENTRANCE":
-      return true;
-    case "SECURITY HALL":
-      return true;
-    case "AUXILIARY TERMINAL":
-      return true;
-    case "ARCHIVE":
-      return memory.storyFlags.terminalAccessed;
-    case "ELEVATOR":
-      return memory.storyFlags.terminalAccessed && memory.storyFlags.archiveOpened;
-    case "SUB-CORE":
-      return memory.questsCompleted.length >= 2;
-    default:
-      return false;
-  }
+  return true;
 }
-
 export function FacilityMap({
   memory,
   selectedLocation,
